@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    //id("org.jetbrains.kotlin.android") version "1.9.10"
 }
 
 android {
@@ -71,6 +72,8 @@ dependencies {
     implementation ("androidx.core:core-ktx:1.9.0")
     implementation("com.google.android.material:material:1.9.0")
     implementation(libs.androidx.core)
+    implementation ("androidx.work:work-runtime-ktx:2.8.0")
+
 
 
 }
