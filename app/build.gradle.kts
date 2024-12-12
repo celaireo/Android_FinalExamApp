@@ -70,5 +70,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation ("androidx.core:core-ktx:1.9.0")
     implementation("com.google.android.material:material:1.9.0")
+    implementation(libs.androidx.core)
+
 
 }
