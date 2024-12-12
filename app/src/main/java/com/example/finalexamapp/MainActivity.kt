@@ -88,4 +88,5 @@ class MainActivity : AppCompatActivity() {
         }
         NotificationManagerCompat.from(this).notify(1, notification)
     }
+
 }
