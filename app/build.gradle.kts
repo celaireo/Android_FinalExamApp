@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("org.jetbrains.kotlin.kapt")
     //id("org.jetbrains.kotlin.android") version "1.9.10"
 }
 
@@ -75,6 +76,8 @@ dependencies {
     implementation ("androidx.work:work-runtime-ktx:2.8.0")
     implementation ("androidx.recyclerview:recyclerview:1.3.0")
     implementation ("androidx.paging:paging-runtime-ktx:3.1.0")
+    implementation ("androidx.room:room-runtime:2.5.0")
+    kapt("androidx.room:room-compiler:2.5.0")
 
 
 }

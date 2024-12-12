@@ -16,9 +16,11 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.google.android.material.snackbar.Snackbar
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,9 +34,9 @@ class MainActivity : AppCompatActivity() {
 
         // Liste d'exemple
         val userList = listOf(
-            User("Alice", "alice@example.com"),
-            User("Bob", "bob@example.com"),
-            User("Charlie", "charlie@example.com")
+            User(1, "Alice", "alice@example.com"),
+            User(2, "Bob", "bob@example.com"),
+            User(3, "Charlie", "charlie@example.com")
         )
 
         // RecyclerView
@@ -101,6 +103,30 @@ class MainActivity : AppCompatActivity() {
             return
         }
         NotificationManagerCompat.from(this).notify(1, notification)
+
+        val db = Room.databaseBuilder(
+            applicationContext,
+            UserDatabase::class.java, "database-name"
+        ).build()
+
+        val userDao = db.userDao()
+
+       // Exemple d'ajout d'un utilisateur
+        val user = User(1, "Alice", "alice@example.com") // ID est un Int et email est ajouté
+        Thread {
+            try {
+                userDao.insert(user) // Les appels à la base de données doivent être faits sur un thread d'arrière-plan
+            } catch (e: Exception) {
+                e.printStackTrace() // Gestion des erreurs si nécessaire
+            }
+        }.start()
+
+
+        Room.databaseBuilder(
+            applicationContext,
+            UserDatabase::class.java, "database-name"
+        ).fallbackToDestructiveMigration().build()
+
     }
 
 }
