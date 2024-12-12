@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.google.android.material.snackbar.Snackbar
@@ -27,6 +29,18 @@ class MainActivity : AppCompatActivity() {
         val toastButton: Button = findViewById(R.id.toastButton)
         val snackbarButton: Button = findViewById(R.id.snackbarButton)
         val notificationButton: Button = findViewById(R.id.notificationButton)
+
+        // Liste d'exemple
+        val userList = listOf(
+            User("Alice", "alice@example.com"),
+            User("Bob", "bob@example.com"),
+            User("Charlie", "charlie@example.com")
+        )
+
+        // RecyclerView
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = UserAdapter(userList)
 
         // Toast
         toastButton.setOnClickListener {

@@ -73,7 +73,8 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation(libs.androidx.core)
     implementation ("androidx.work:work-runtime-ktx:2.8.0")
-
+    implementation ("androidx.recyclerview:recyclerview:1.3.0")
+    implementation ("androidx.paging:paging-runtime-ktx:3.1.0")
 
 
 }

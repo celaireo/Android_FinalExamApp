@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+
     <!-- Ajouter la vue personnalisée -->
     <com.example.finalexam.CustomView
         android:layout_width="match_parent"
@@ -41,4 +42,33 @@
         android:text="Afficher une Notification"
         android:layout_marginTop="16dp" />
 
+    <!-- Un autre élément comme un titre -->
+    <TextView
+        android:id="@+id/headerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Liste des éléments"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="8dp" />
+
+    <!-- RecyclerView avec une hauteur fixe -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Un autre bouton ou section en bas -->
+    <Button
+        android:id="@+id/actionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Action"
+        android:layout_gravity="center" />
+
 </LinearLayout>
+
+
+
+
